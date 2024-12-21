@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript ES6 Features</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1>JavaScript ES6 Features</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Closure</h2>
+            <p>A closure is a function that remembers the variables from its lexical scope even when the function is executed outside that scope.</p>
+            <pre><code id="closure-example"> function createCounter() {
+let count = 0;
+return function () {
+count++;
+return \`Count: ${count}\`;
+};
+}          
+const counter = createCounter();
+console.log(counter());
+console.log(counter());</code></pre>
+        </section>
+
+        <section>
+            <h2>Destructuring</h2>
+            <p>Destructuring allows you to unpack values from arrays or properties from objects into distinct variables.</p>
+            <pre><code id="destructuring-example">//Array destructuring
+const [firstName, lastName] = ["John", "Doe"];
+console.log(\`First Name: ${firstName}, Last Name: ${lastName}\`);               
+//Object destructuring
+const user = {username: "johndoe", email: "john@example.com"};
+const {username, email} = user;
+console.log(\`Username: ${username}, Email: ${email}\`);</code></pre>
+        </section>
+
+        <section>
+            <h2>Default Parameters</h2>
+            <p>Default parameters allow you to set default values for function parameters.</p>
+            <pre><code id="default-parameters-example">function greet(name = "Guest") {
+return \`Welcome, ${name}!\`;
+}
+console.log(greet());
+console.log(greet("Alice"));</code></pre>
+        </section>
+
+        <section>
+            <h2>Rest Parameter</h2>
+            <p>The rest parameter syntax allows you to represent an indefinite number of arguments as an array.</p>
+            <pre><code id="rest-parameter-example">function calculateTotal(...prices) {
+return prices.reduce((sum, price) => sum + price, 0);
+} 
+console.log(\`Total: $${calculateTotal(10.99, 20.99, 5.49)}\`);</code></pre>
+        </section>
+
+        <section>
+            <h2>Spread Operator</h2>
+            <p>The spread operator allows you to expand elements of an array or object.</p>
+            <pre><code id="spread-operator-example">// Array spread
+const fruits = ["apple", "banana", "cherry"];
+const moreFruits = ["mango", ...fruits, "pineapple"];
+console.log(moreFruits);              
+// Object spread
+const baseProduct = {id: 1, name: "Laptop"};
+const updatedProduct = {...baseProduct, price: 1200};
+console.log(updatedProduct);</code></pre>
+        </section>
+
+        <section>
+            <h2>Enhanced Object Literals</h2>
+            <p>Enhanced object literals provide syntactic sugar for defining objects.</p>
+            <pre><code id="enhanced-object-literals-example">const title = "Developer";
+const details = {
+title,
+introduce() {
+return \`Hello, I am a ${this.title}.\`;
+}
+}; 
+console.log(details.introduce());</code></pre>
+        </section>
+
+        <section>
+            <h2>Property Shorthand</h2>
+            <p>Property shorthand lets you create object properties using variables with the same name.</p>
+            <pre><code id="property-shorthand-example">const width = 100;
+const height = 200;
+const dimensions = {width, height};
+console.log(dimensions);</code></pre>
+        </section>
+
+        <section>
+            <h2>Method Shorthand</h2>
+            <p>Method shorthand allows you to define functions in objects without the <code>function</code> keyword.</p>
+            <pre><code id="method-shorthand-example">const mathUtils = {
+multiply(a, b) {
+return a * b;
+},
+divide(a, b) {
+return a / b;
+}
+};
+console.log(mathUtils.multiply(4, 5));</code></pre>
+        </section>
+
+        <section>
+            <h2>Computed Property Names</h2>
+            <p>Computed property names allow you to define object properties using expressions.</p>
+            <pre><code id="computed-property-names-example">const key = "dynamicKey";
+const dynamicObject = {
+[key]: "Dynamic Value"
+};              
+console.log(dynamicObject.dynamicKey);</code></pre>
+        </section>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
